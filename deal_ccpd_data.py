@@ -2,7 +2,7 @@
 # Author:      zhousf
 # Date:        2019-09-11
 # File:        deal_ccpd_data.py
-# Description:  CCPD2019
+# Description:  CCPD2019车牌数据集
 # https://github.com/detectRecog/CCPD
 import os
 import cv2
