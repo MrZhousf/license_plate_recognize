@@ -1,8 +1,9 @@
-# license_plate_recongnize
+# license_plate_recognize
 端到端车牌识别项目，完整的数据集、数据制作、训练、评估、预测业务
 * 运行平台：tensorflow1.12.0+python3.6
 * 神经网络：CNN+RNN
 * 数据集：CCPD2019
+
 
 ### 依赖
 pip install -r requirements.txt
@@ -14,15 +15,15 @@ CCPD2019车牌数据集：https://github.com/detectRecog/CCPD
 生成训练数据集： deal_ccpd_data.py
 1. 下载CCPD2019数据集：https://github.com/detectRecog/CCPD
 * 共有9种类型的车牌数据
-* ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/data.png?raw=true)
-* ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/data_detail.png?raw=true)
+* ![](https://github.com/MrZhousf/license_plate_recognize/blob/master/pic/data.png?raw=true)
+* ![](https://github.com/MrZhousf/license_plate_recognize/blob/master/pic/data_detail.png?raw=true)
 
 2. 保存车牌图片-提取图片中的车牌
 ```python3
 fetch_plate_img(img_dir=img_dir_, save_dir=save_dir_)
 ```
 运行完成后，只保留了车牌图片且命名为车牌号码
-* ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/plate.png?raw=true)
+* ![](https://github.com/MrZhousf/license_plate_recognize/blob/master/pic/plate.png?raw=true)
 
 3. 图片校验，删除有问题的图片
 ```python3
@@ -34,7 +35,7 @@ verify_img(img_dir=img_dir_, error_img_save_dir=error_img_save_dir_)
 statistics(img_dir=img_dir_, log_txt=log_txt_)
 ```
 统计结果如下，统计结果没有显示完全，可见车牌数据是安徽的居多（ccpd2019是中科大的学生收集与整理）
-* ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/statistic.png?raw=true)
+* ![](https://github.com/MrZhousf/license_plate_recognize/blob/master/pic/statistic.png?raw=true)
 
 5. 生成训练-评估数据：将数据按照百分比切割成训练集和评估集
 ```python3
@@ -43,13 +44,18 @@ generate_train_eval(img_dir=img_dir_, train_dir=train_dir_, eval_dir=eval_dir_, 
 
 ### CNN+RNN
 model目录下为网络训练业务
-1. 神经网络：model.py
+1. 神经网络：license_plate_model.py
 2. 训练+评估：train.py
 3. 数据生成器：data_generator.py
 4. 预测/测试：prediction.py
-* ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/pre.png?raw=true)
+* 下载预训练模型13_0.213.hdf5并置于train_dir目录下：
+* ![](https://github.com/MrZhousf/license_plate_recognize/blob/master/pic/pre.png?raw=true)
 
-### github上图片无法正常显示
+### 数据集待完善
+1. CCPD2019数据集有35万张车牌数据（包含各种天气），对于端到端的模型来说数据还有增加的空间
+2. CCPD2019缺少新能源车、混动、货车以及特种车辆的车牌图片（黄牌、绿牌、黄绿牌等）
+
+### 解决github上图片无法正常显示问题
 * 在终端执行
 ```python3
 sudo vi /etc/hosts
