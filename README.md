@@ -14,7 +14,7 @@ CCPD2019车牌数据集：https://github.com/detectRecog/CCPD
 生成训练数据集： deal_ccpd_data.py
 1. 下载CCPD2019数据集：https://github.com/detectRecog/CCPD
 * 共有9种类型的车牌数据
-* ![](https://raw.githubusercontent.com/MrZhousf/license_plate_recongnize/blob/master/pic/data.png?raw=true)
+* ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/data.png?raw=true)
 * ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/data_detail.png?raw=true)
 
 2. 保存车牌图片-提取图片中的车牌
@@ -33,10 +33,10 @@ verify_img(img_dir=img_dir_, error_img_save_dir=error_img_save_dir_)
 ```python3
 statistics(img_dir=img_dir_, log_txt=log_txt_)
 ```
-统计结果如下
+统计结果如下，统计结果没有显示完全，可见车牌数据是安徽的居多（ccpd2019是中科大的学生收集与整理）
 * ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/statistic.png?raw=true)
 
-5. 生成训练-评估数据
+5. 生成训练-评估数据：将数据按照百分比切割成训练集和评估集
 ```python3
 generate_train_eval(img_dir=img_dir_, train_dir=train_dir_, eval_dir=eval_dir_, eval_percent=0.03)
 ```
@@ -50,11 +50,11 @@ model目录下为网络训练业务
 * ![](https://github.com/MrZhousf/license_plate_recongnize/blob/master/pic/pre.png?raw=true)
 
 ### github上图片无法正常显示
-× 在终端执行
+* 在终端执行
 ```python3
 sudo vi /etc/hosts
 ```
-× 添加以下地址
+* 添加以下地址
 ```python3
 # GitHub Start
 192.30.253.112    github.com
@@ -75,7 +75,7 @@ sudo vi /etc/hosts
 199.232.28.133    avatars8.githubusercontent.com
  # GitHub End
 ```
-× 刷新页面即可
+* 刷新页面即可
 
 
 
