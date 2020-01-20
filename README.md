@@ -34,7 +34,7 @@ verify_img(img_dir=img_dir_, error_img_save_dir=error_img_save_dir_)
 ```python3
 statistics(img_dir=img_dir_, log_txt=log_txt_)
 ```
-统计结果如下，统计结果没有显示完全，可见车牌数据是安徽的居多（ccpd2019是中科大的学生收集与整理）
+统计结果如下，统计结果没有显示完全，可见车牌数据是安徽的居多（ccpd2019是中科大的学生收集与整理的）
 * ![](https://github.com/MrZhousf/license_plate_recognize/blob/master/pic/statistic.png?raw=true)
 
 5. 生成训练-评估数据：将数据按照百分比切割成训练集和评估集
@@ -48,12 +48,14 @@ model目录下为网络训练业务
 2. 训练+评估：train.py
 3. 数据生成器：data_generator.py
 4. 预测/测试：prediction.py
-* 下载预训练模型13_0.213.hdf5并置于train_dir目录下：
+* 下载预训练模型13_0.213.hdf5并置于train_dir目录下，该模型训练了13个epoch，loss=0.213：https://download.csdn.net/download/zsf442553199/12115514
 * ![](https://github.com/MrZhousf/license_plate_recognize/blob/master/pic/pre.png?raw=true)
 
-### 数据集待完善
+### 待完善
 1. CCPD2019数据集有35万张车牌数据（包含各种天气），对于端到端的模型来说数据还有增加的空间
-2. CCPD2019缺少新能源车、混动、货车以及特种车辆的车牌图片（黄牌、绿牌、黄绿牌等）
+2. CCPD2019数据集未覆盖全国各地的车牌，安徽车牌居多，数据缺口较大
+3. CCPD2019缺少新能源车、混动、货车以及特种车辆的车牌图片（黄牌、绿牌、黄绿牌、白牌、黑牌等）
+4. 增加车牌检测网络，实现车牌检测+识别自动化，这个比较简单，可以采用yolov3实现，后续若有时间再提交一版
 
 ### 解决github上图片无法正常显示问题
 * 在终端执行
