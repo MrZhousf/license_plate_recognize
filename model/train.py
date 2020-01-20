@@ -3,8 +3,8 @@
 # Date:        2019-07-26
 # File:        train.py
 # Description:  训练
-from license_plate_workspace.model.model import Model
-from license_plate_workspace.model.data_generator import ImageGenerator
+from model.model import Model
+from model.data_generator import ImageGenerator
 import tensorflow as tf
 import os
 
@@ -52,7 +52,5 @@ if __name__ == '__main__':
     train_dir = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/workspace/zhousf_projects/ml_project/license_plate_workspace/model/train_dir1"
     train_img_dir = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/data-zhousf/plate_train"
     eval_img_dir = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/data-zhousf/plate_eval"
-    # train_img_dir = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/data-zhousf/test/train"
-    # eval_img_dir = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/data-zhousf/test/eval"
     train(train_dir, train_img_dir, eval_img_dir)
     pass

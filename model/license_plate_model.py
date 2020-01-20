@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author:      zhousf
 # Date:        2019-07-25
-# File:        license_plate.py
+# File:        license_plate_model.py
 # Description:  CNN + RNN 网络模型
 import tensorflow as tf
 

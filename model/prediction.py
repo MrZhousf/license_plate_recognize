@@ -7,7 +7,7 @@ import numpy as np
 import os
 import cv2
 import itertools
-from license_plate_workspace.model.model import Model
+from model import license_plate_model
 
 
 class PredictionModel(object):
@@ -22,7 +22,7 @@ class PredictionModel(object):
         self.model = self.load_model(weight_file)
 
     def load_model(self, weight_file):
-        model_ = Model(self.img_height, self.img_width, self.class_num, self.label_max_length)
+        model_ = license_plate_model.Model(self.img_height, self.img_width, self.class_num, self.label_max_length)
         model_ = model_.create_model(training=False, data_format=self.data_format)
         model_.load_weights(weight_file)
         return model_
@@ -101,12 +101,13 @@ class PredictionModel(object):
 
 
 if __name__ == "__main__":
-    weight = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/workspace/zhousf_projects/ml_project/license_plate_workspace/model/img/06_0.290.hdf5"
-    img_dir = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/workspace/zhousf_projects/ml_project/license_plate_workspace/model/img/pre"
-    img_file = "/media/ubuntu/b8f80802-d95a-41c3-b157-6f4e34967425/workspace/zhousf_projects/ml_project/license_plate_workspace/model/img/pre/15B603WV.jpg"
-    model = PredictionModel(weight)
-    # model.predict_images(img_dir=img_dir)
+    current_dir = os.path.dirname(__file__)
+    weight_file = os.path.join(current_dir, "train_dir/13_0.213.hdf5")
+    img_dir = os.path.join(current_dir, "img/pre")
+    img_file = os.path.join(img_dir, "15B603WV.jpg")
+    model = PredictionModel(weight_file)
     print(model.predict_image(img=img_file))
+    # model.predict_images(img_dir=img_dir)
 
 
 
