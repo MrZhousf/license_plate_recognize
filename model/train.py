@@ -3,7 +3,7 @@
 # Date:        2019-07-26
 # File:        train.py
 # Description:  训练
-from model.model import Model
+from model.license_plate_model import Model
 from model.data_generator import ImageGenerator
 import tensorflow as tf
 import os
