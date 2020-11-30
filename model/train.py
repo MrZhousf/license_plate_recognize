@@ -3,7 +3,7 @@
 # Date:        2019-07-26
 # File:        train.py
 # Description:  训练
-from model.model import Model
+from model.license_plate_model import Model
 from model.data_generator import ImageGenerator
 import tensorflow as tf
 import os
@@ -16,6 +16,10 @@ def ctc_loss_func():
 def train(train_dir, train_img_dir, eval_img_dir, hdf5=None):
     if not os.path.exists(train_dir):
         os.makedirs(train_dir)
+    if not os.path.isdir(train_img_dir):
+        print("The folder does not exist: {0}".format(train_img_dir))
+    if not os.path.isdir(eval_img_dir):
+        print("The folder does not exist: {0}".format(eval_img_dir))
     label_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "
     img_height = 64
     img_width = 128
@@ -41,7 +45,7 @@ def train(train_dir, train_img_dir, eval_img_dir, hdf5=None):
     model.compile(optimizer=tf.keras.optimizers.Adadelta(), loss=ctc_loss_func())
     model.fit_generator(generator=train_generator,
                         steps_per_epoch=train_generator.steps_per_epoch,
-                        epochs=1,
+                        epochs=10,
                         callbacks=[checkpoint],
                         validation_data=eval_generator,
                         use_multiprocessing=False,
